@@ -38,7 +38,19 @@
   navbarCollapse();
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
+  
+});
 
+$(window).load(function () {
+  $('.hiddenMail').on('click',function(event)
+  {
+      event.preventDefault();
+      $(this).off("click");
+      var email = $(this).attr("data-email").replace(/AT/,'@').replace(/DOT/,'.');
+      $(this).removeClass("hiddenMail");
+      $(this).html(email);
+      $(this).attr("href","mailto:"+email);
+  });
   // Magnific popup calls
   // $('#portfolio').magnificPopup({
   //   delegate: 'a',
