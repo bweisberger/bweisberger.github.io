@@ -39,7 +39,7 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
   
-});
+
 
 $(window).load(function () {
   $('.hiddenMail').on('click',function(event)
@@ -51,6 +51,19 @@ $(window).load(function () {
       $(this).html(email);
       $(this).attr("href","mailto:"+email);
   });
+});
+
+$(window).load(function () {
+  $('.hiddenPhone').on('click',function(event)
+  {
+      event.preventDefault();
+      $(this).off("click");
+      var phone = $(this).attr("data-phone").replace(/TWO/,'2').replace(/ONE/,'1');
+      $(this).removeClass("hiddenPhone");
+      $(this).html(phone);
+      $(this).attr("href","tel:"+phone);
+  });
+});
   // Magnific popup calls
   // $('#portfolio').magnificPopup({
   //   delegate: 'a',
